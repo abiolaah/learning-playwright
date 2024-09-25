@@ -34,6 +34,7 @@ test.afterAll(async ({ page }, testInfo) => {
 
 test.afterEach(async ({ page }, testInfo) => {
   console.log(`Finished ${testInfo.title} with status ${testInfo.status}`);
+  console.log(`Finished ${testInfo.title} with ${testInfo.retry} retries`);
 
   if (testInfo.status !== testInfo.expectedStatus)
     console.log(`Did not run as expected, ended up at ${page.url()}`);

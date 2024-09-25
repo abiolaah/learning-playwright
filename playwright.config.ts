@@ -25,13 +25,16 @@ export default defineConfig({
 
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
+  // workers: 1, //Worker in terminal changed
+  // workers: 10, //Worker in terminal did not changed, used 3
+  // workers: 100, //Worker in terminal did not changed, used 3
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
   // reporter: [['html', { open: 'always' }]], //always, never and on-failure (default).
   // reporter: [['html', { outputFolder: 'my-report' }]], // report is written into the playwright-report folder in the current working directory. override it using the PLAYWRIGHT_HTML_REPORT
   // reporter: 'dot',
-  // reporter: 'list',
+  // reporter: "list",
   /**
     reporter: [
       ['list'],
@@ -53,7 +56,7 @@ export default defineConfig({
     // headless: false,
     // ignoreHTTPSErrors: true,
     // viewport: { width: 1280, height: 720 },
-    // video: 'on-first-retry',
+    video: "on-first-retry",
   },
   // timeout: 30000, //https://playwright.dev/docs/test-timeouts
   // expect: {
