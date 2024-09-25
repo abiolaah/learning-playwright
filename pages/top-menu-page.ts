@@ -4,37 +4,37 @@ export class TopMenuPage {
   //variables
   readonly page: Page;
   readonly getStartedLink: Locator;
-  readonly docLink: Locator;
-  readonly apiLink: Locator;
   readonly nodeLink: Locator;
-  readonly pythonLink: Locator;
   readonly javaLink: Locator;
-  readonly dotNetLink: Locator;
-  readonly communityLink: Locator;
   readonly nodeLabel: Locator;
   readonly javaLabel: Locator;
   readonly nodeDescription: "Installing Playwright";
   readonly javaDescription: `Playwright is distributed as a set of Maven modules. The easiest way to use it is to add one dependency to your project's pom.xml as described below. If you're not familiar with Maven please refer to its documentation.`;
+  readonly docLink: Locator;
+  readonly apiLink: Locator;
+  readonly pythonLink: Locator;
+  readonly dotNetLink: Locator;
+  readonly communityLink: Locator;
 
   //constructor
   constructor(page: Page) {
     this.page = page;
     this.getStartedLink = page.getByRole("link", { name: "Get Started" });
-    this.docLink = page.getByRole("link", { name: "Docs" });
-    this.apiLink = page.getByRole("link", { name: "API" });
     this.nodeLink = page.getByRole("button", { name: "Node.js" });
-    this.pythonLink = page
-      .getByRole("navigation", { name: "Main" })
-      .getByText("Python");
     this.javaLink = page
       .getByRole("navigation", { name: "Main" })
       .getByText("Java");
+    this.nodeLabel = page.getByText(this.nodeDescription, { exact: true });
+    this.javaLabel = page.getByText(this.javaDescription);
+    this.docLink = page.getByRole("link", { name: "Docs" });
+    this.apiLink = page.getByRole("link", { name: "API" });
+    this.pythonLink = page
+      .getByRole("navigation", { name: "Main" })
+      .getByText("Python");
     this.dotNetLink = page
       .getByRole("navigation", { name: "Main" })
       .getByText(".NET");
     this.communityLink = page.getByRole("link", { name: "Community" });
-    this.nodeLabel = page.getByText(this.nodeDescription, { exact: true });
-    this.javaLabel = page.getByText(this.javaDescription);
   }
   //methods
   async hoverNode() {
