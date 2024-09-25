@@ -94,7 +94,7 @@ test.describe("Playwright website", () => {
     await eyes.check("Home page", Target.window().fully());
   });
 
-  test.skip("get started link", async ({ page }) => {
+  test("get started link", async ({ page }) => {
     // Click the get started link.
     await clickGetStarted(page);
 
@@ -106,7 +106,7 @@ test.describe("Playwright website", () => {
     await eyes.check("Get Started page", Target.window().fully().layout());
   });
 
-  test.skip("check Java page", async ({ page }) => {
+  test("check Java page", async ({ page }) => {
     await test.step("Act", async () => {
       await clickGetStarted(page);
       await topMenuPage.hoverNode();
